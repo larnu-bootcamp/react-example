@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter';
+import { useEffect, useState } from 'react';
+import Cards from './Cards';
 
 function App() {
+  // este useEffect occurre cada vez que 
+  // renderiza este componente.
+  useEffect(() => {
+    console.log('App');
+  });
+
+  // este useEffect ocurre solo cuando la variable 
+  // something sufre algún cambio
+  // useEffect(() => {
+  //   console.log('different');
+  // }, [value]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Cards/>
+      <Counter/>
     </div>
   );
 }
