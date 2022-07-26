@@ -1,27 +1,22 @@
 import './App.css';
-import Counter from './Counter';
-import { useEffect, useState } from 'react';
-import Cards from './Cards';
+import { Link, Route } from "wouter";
+import Cards from './components/Cards';
+import Boxes from './components/boxes/Boxes';
 
 function App() {
-  // este useEffect occurre cada vez que 
-  // renderiza este componente.
-  useEffect(() => {
-    console.log('App');
-  });
-
-  // este useEffect ocurre solo cuando la variable 
-  // something sufre algún cambio
-  // useEffect(() => {
-  //   console.log('different');
-  // }, [value]);
 
   return (
     <div className="App">
       <header className="App-header">
+        <Link href="/courses">
+          <a className="link">Cursos</a>
+        </Link>
+        <Link href="/boxes">
+          <a className="link">Boxes</a>
+        </Link>
       </header>
-      <Cards/>
-      <Counter/>
+      <Route path="/boxes" component={Boxes} />
+      <Route path="/courses" component={Cards} />
     </div>
   );
 }

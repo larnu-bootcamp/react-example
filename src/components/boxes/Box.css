@@ -1,0 +1,8 @@
+.box {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 15rem;
+  text-align: center;
+  border-radius: 10%;
+  overflow: hidden;
+  padding: 10px;
+}

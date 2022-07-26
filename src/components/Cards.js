@@ -1,24 +1,13 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './Cards.css';
 import Card from './Card';
+import { getCoursesApi } from '../services/courses';
 
 function Cards() {
-  const API_URL = 'https://larnu-dev-upy5mhs63a-rj.a.run.app/api/v1/categories';
   const [courses, updateCourses] = useState([]);  
-
-  function getCoursesApi() {
-    return new Promise((resolve, reject) => {
-      fetch(API_URL)
-        .then((response) => response.json())
-        .then((data) => {
-          resolve(data.communityCategories);
-        });
-    });
-  }
 
   async function getCourses() {
     const courses = await getCoursesApi();
-    console.log(courses);
     updateCourses(courses);
   }
 
